@@ -146,7 +146,7 @@ server <- function(input, output) {
       theme_dark() +
       xlab(label = "Petal Width") +
       ylab(label = "Density") +
-      geom_vline(aes(xintercept = 1.2), color = "grey 24") +
+      geom_vline(aes(xintercept = 1.2), color = "red") +
       theme(plot.background = element_rect(fill = "grey 24"))
   })
   
