@@ -126,7 +126,8 @@ server <- function(input, output) {
       geom_point(aes(x = 5.8, y = 3.1), color = "red", size = 3) +
       theme_dark() +
       xlab(label = "Sepal Length") +
-      ylab(label = "Sepal Width") 
+      ylab(label = "Sepal Width")  +
+      theme(plot.background = element_rect(fill = "grey 24"))
     })
   
   output$plot2 <- renderPlot({
@@ -134,7 +135,9 @@ server <- function(input, output) {
       geom_density() +
       theme_dark() +
       xlab(label = "Petal Length") +
-      geom_vline(aes(xintercept = 3.76), color = "red")
+      ylab(label = "Density") +
+      geom_vline(aes(xintercept = 3.76), color = "red") +
+      theme(plot.background = element_rect(fill = "grey 24"))
   })
   
   output$plot3 <- renderPlot({
@@ -142,7 +145,9 @@ server <- function(input, output) {
       geom_density() +
       theme_dark() +
       xlab(label = "Petal Width") +
-      geom_vline(aes(xintercept = 1.2), color = "red")
+      ylab(label = "Density") +
+      geom_vline(aes(xintercept = 1.2), color = "grey 24") +
+      theme(plot.background = element_rect(fill = "grey 24"))
   })
   
   output$plot4 <- renderPlot({
@@ -150,7 +155,9 @@ server <- function(input, output) {
       geom_density() +
       theme_dark() +
       xlab(label = "Sepal Length") +
-      geom_vline(aes(xintercept = 5.84), color = "red")
+      ylab(label = "Density") +
+      geom_vline(aes(xintercept = 5.84), color = "red") +
+      theme(plot.background = element_rect(fill = "grey 24"))
   })
   
   output$plot5 <- renderPlot({
@@ -158,7 +165,9 @@ server <- function(input, output) {
       geom_density() +
       theme_dark() +
       xlab(label = "Sepal Width") +
-      geom_vline(aes(xintercept = 3.06), color = "red")
+      ylab(label = "Density") +
+      geom_vline(aes(xintercept = 3.06), color = "red") +
+      theme(plot.background = element_rect(fill = "grey 24"))
   })
 }
 
