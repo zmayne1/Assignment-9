@@ -5,7 +5,7 @@ if(!require(shiny)) {install.packages("shiny"); require(shiny)}
 if(!require(tidyverse)) {install.packages("tidyverse"); require(tidyverse)}
 if(!require(xgboost)) {install.packages("xgboost"); require(xgboost)}
 if(!require(ModelMetrics)) {install.packages("ModelMetrics"); require(ModelMetrics)}
-if(!require(DT)) {install.packages("DT"); require(DT)}
+if(!require(shinythemes)) {install.packages("shinythemes"); require(shinythemes)}
 
 ################################################################################################################################################################################################################################################################
 
@@ -54,10 +54,10 @@ irisClassifier <- xgboost(params = param, data = x_train, label = y_train, nroun
 ################################################################################################################################################################################################################################################################
 
 # Define UI for slider demo app ----
-ui <- fluidPage(
+ui <- fluidPage(theme = shinytheme("darkly"),
   
   # App title ----
-  titlePanel("Iris Species Prediction"),
+  titlePanel("Iris Species Identification"),
   
   # Sidebar layout with input and output definitions ----
   sidebarLayout(
@@ -124,7 +124,7 @@ server <- function(input, output) {
     ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
       geom_point() +
       geom_point(aes(x = 5.8, y = 3.1), color = "red", size = 3) +
-      theme_test() +
+      theme_dark() +
       xlab(label = "Sepal Length") +
       ylab(label = "Sepal Width") 
     })
@@ -132,7 +132,7 @@ server <- function(input, output) {
   output$plot2 <- renderPlot({
     ggplot(iris, aes(Petal.Length, color = Species)) +
       geom_density() +
-      theme_test() +
+      theme_dark() +
       xlab(label = "Petal Length") +
       geom_vline(aes(xintercept = 3.76), color = "red")
   })
@@ -140,7 +140,7 @@ server <- function(input, output) {
   output$plot3 <- renderPlot({
     ggplot(iris, aes(Petal.Width, color = Species)) +
       geom_density() +
-      theme_test() +
+      theme_dark() +
       xlab(label = "Petal Width") +
       geom_vline(aes(xintercept = 1.2), color = "red")
   })
@@ -148,7 +148,7 @@ server <- function(input, output) {
   output$plot4 <- renderPlot({
     ggplot(iris, aes(Sepal.Length, color = Species)) +
       geom_density() +
-      theme_test() +
+      theme_dark() +
       xlab(label = "Sepal Length") +
       geom_vline(aes(xintercept = 5.84), color = "red")
   })
@@ -156,7 +156,7 @@ server <- function(input, output) {
   output$plot5 <- renderPlot({
     ggplot(iris, aes(Sepal.Width, color = Species)) +
       geom_density() +
-      theme_test() +
+      theme_dark() +
       xlab(label = "Sepal Width") +
       geom_vline(aes(xintercept = 3.06), color = "red")
   })
